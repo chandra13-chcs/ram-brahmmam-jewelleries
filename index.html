@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Essential Local SEO Tags -->
+  <meta name="description" content="Ram Brahmmam Jewelleries, Mandapeta. 25+ years experienced master goldsmiths for bespoke handcrafted gold jewellery, bridal vaddanams, rings & 100% BIS Hallmarked ornaments." />
+  <meta name="keywords" content="gold workshop mandapeta, jewellery mandapeta, custom goldsmith rajahmundry, handcrafted bridal jewellery, 916 gold making charges" />
+  <meta name="author" content="Ram Brahmmam Jewelleries" />
+
+  <!-- WhatsApp Link Preview Cards -->
+  <meta property="og:title" content="Ram Brahmmam Jewelleries | Mandapeta Custom Gold Workshop" />
+  <meta property="og:description" content="25+ Years of Craftsmanship. Custom designs, wholesale making charges, 100% BIS Hallmarked gold ornaments directly from our workshop." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://ram-brahmmam-jewelleries.netlify.app/images/neck-1.jfif" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ram Brahmmam Jewelleries | Mandapeta Gold Workshop</title>
+  
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f3e5ab;
+      --gold-dark: #aa820a;
+      --bg-dark: #0a0a0c;
+      --card-bg: #141418;
+      --border-color: #2a2a35;
+      --text-main: #f5f5f7;
+      --text-muted: #a0a0aa;
+    }
+
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+    }
+    
+    body { 
+      background-color: var(--bg-dark); 
+      color: var(--text-main); 
+      line-height: 1.6; 
+    }
+
+    /* Live Gold Rate Ticker Bar */
+    .gold-rate-ticker {
+      background: linear-gradient(90deg, #111116, #1c1809, #111116);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+      color: var(--gold-light);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      letter-spacing: 0.5px;
+      flex-wrap: wrap;
+    }
+    .rate-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .rate-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 8px #22c55e;
+      animation: pulse 1.6s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.8); }
+    }
+    .rate-val {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* Luxury Header */
+    header { 
+      background: rgba(14, 14, 18, 0.95); 
+      border-bottom: 1px solid rgba(212, 175, 55, 0.25); 
+      padding: 22px 16px; 
+      text-align: center; 
+      position: sticky; 
+      top: 0; 
+      z-index: 20; 
+      backdrop-filter: blur(8px);
+    }
+    
+    /* Language Dropdown */
+    .lang-switch-wrapper {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 25;
+    }
+
+    .lang-select {
+      background: #191920;
+      color: var(--gold);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .lang-select:hover {
+      border-color: var(--gold);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    }
+
+    .brand-title { 
+      font-size: 1.8rem; 
+      color: var(--gold); 
+      font-weight: 800; 
+      letter-spacing: 1.5px; 
+      text-transform: uppercase;
+      text-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+    
+    .location-tag { 
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 0.85rem; 
+      color: var(--gold-light); 
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* Hero Section */
+    .hero { 
+      text-align: center; 
+      padding: 45px 16px 30px; 
+      background: radial-gradient(circle at 50% 20%, #1e1e26 0%, var(--bg-dark) 70%); 
+    }
+    
+    .hero h2 { 
+      font-size: 1.5rem; 
+      color: #ffffff; 
+      margin-bottom: 12px; 
+      font-weight: 700; 
+    }
+    
+    .hero p { 
+      font-size: 0.95rem; 
+      color: var(--text-muted); 
+      max-width: 680px; 
+      margin: 0 auto 20px auto; 
+    }
+    
+    .badges { 
+      display: flex; 
+      justify-content: center; 
+      gap: 12px; 
+      flex-wrap: wrap; 
+    }
+    
+    .badge { 
+      background: rgba(212, 175, 55, 0.08); 
+      color: var(--gold-light);
+      padding: 7px 16px; 
+      border-radius: 30px; 
+      border: 1px solid rgba(212, 175, 55, 0.35); 
+      font-size: 0.82rem; 
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* Category Filter Buttons - Clean Mobile Scroll */
+    .filter-container { 
+      display: flex; 
+      justify-content: flex-start;
+      gap: 10px; 
+      overflow-x: auto; 
+      padding: 16px; 
+      scrollbar-width: none; 
+      -webkit-overflow-scrolling: touch;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    
+    .filter-container::-webkit-scrollbar {
+      display: none; 
+    }
+    
+    .filter-btn { 
+      background: #191920; 
+      color: var(--text-muted); 
+      border: 1px solid var(--border-color); 
+      padding: 8px 18px; 
+      border-radius: 25px; 
+      cursor: pointer; 
+      font-size: 0.86rem; 
+      font-weight: 500;
+      white-space: nowrap; 
+      flex-shrink: 0; 
+      transition: all 0.25s ease; 
+    }
+    
+    .filter-btn.active, .filter-btn:hover { 
+      background: var(--gold); 
+      color: #000; 
+      border-color: var(--gold); 
+      font-weight: 700; 
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+    }
+
+    /* Product Grid & Cards */
+    .container { 
+      max-width: 1180px; 
+      margin: 0 auto; 
+      padding: 10px 16px 40px; 
+    }
+    
+    .grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+      gap: 24px; 
+    }
+    
+    .card { 
+      background: var(--card-bg); 
+      border-radius: 14px; 
+      overflow: hidden; 
+      border: 1px solid var(--border-color); 
+      display: flex; 
+      flex-direction: column; 
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; 
+    }
+    
+    .card:hover { 
+      transform: translateY(-5px); 
+      border-color: var(--gold); 
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.15); 
+    }
+    
+    .card img { 
+      width: 100%; 
+      height: 250px; 
+      object-fit: contain; 
+      background-color: #0d0d11; 
+      padding: 12px; 
+    }
+    
+    .card-body { 
+      padding: 18px; 
+      display: flex; 
+      flex-direction: column; 
+      flex-grow: 1; 
+    }
+    
+    .item-code { 
+      font-size: 0.72rem; 
+      font-weight: 700; 
+      color: var(--gold); 
+      letter-spacing: 1px; 
+    }
+    
+    .item-title { 
+      font-size: 1.05rem; 
+      margin: 6px 0 16px 0; 
+      font-weight: 600; 
+      color: #fff;
+    }
+    
+    .quote-btn { 
+      margin-top: auto; 
+      display: block; 
+      text-align: center; 
+      background: linear-gradient(135deg, #25D366, #128C7E); 
+      color: #fff; 
+      text-decoration: none; 
+      padding: 11px; 
+      border-radius: 8px; 
+      font-size: 0.88rem; 
+      font-weight: 700; 
+      transition: opacity 0.2s; 
+    }
+    
+    .quote-btn:hover { 
+      opacity: 0.9; 
+    }
+
+    /* Trust Pillars Section */
+    .trust-section {
+      max-width: 1180px;
+      margin: 20px auto 70px;
+      padding: 0 16px;
+    }
+
+    .trust-heading {
+      text-align: center;
+      color: var(--gold);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .trust-card {
+      background: #121217;
+      border: 1px solid var(--border-color);
+      border-top: 3px solid var(--gold);
+      border-radius: 12px;
+      padding: 24px 20px;
+    }
+
+    .trust-card h4 {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .trust-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Modal Popup */
+    .modal-overlay { 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      background: rgba(0, 0, 0, 0.8); 
+      backdrop-filter: blur(5px); 
+      display: none; 
+      align-items: center; 
+      justify-content: center; 
+      z-index: 100; 
+      padding: 20px; 
+    }
+    
+    .modal-content { 
+      background: #16161c; 
+      border: 1px solid var(--gold); 
+      padding: 30px 24px; 
+      border-radius: 16px; 
+      max-width: 420px; 
+      width: 100%; 
+      text-align: center; 
+      position: relative; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8); 
+    }
+    
+    .close-btn { 
+      position: absolute; 
+      top: 12px; 
+      right: 16px; 
+      font-size: 24px; 
+      color: var(--text-muted); 
+      cursor: pointer; 
+      border: none; 
+      background: transparent; 
+    }
+    
+    .close-btn:hover { color: #fff; }
+    
+    .modal-content h3 { 
+      color: var(--gold); 
+      margin-bottom: 8px; 
+      font-size: 1.35rem; 
+      font-weight: 700; 
+    }
+    
+    .modal-content p { 
+      font-size: 0.9rem; 
+      color: var(--text-muted); 
+      margin-bottom: 20px; 
+    }
+    
+    .modal-btn { 
+      display: inline-block; 
+      background: var(--gold); 
+      color: #000; 
+      padding: 10px 24px; 
+      border-radius: 25px; 
+      text-decoration: none; 
+      font-weight: 700; 
+      font-size: 0.9rem; 
+    }
+
+    @media (max-width: 600px) {
+      .lang-switch-wrapper {
+        position: static;
+        margin-bottom: 12px;
+      }
+      header {
+        padding: 16px;
+      }
+      .gold-rate-ticker {
+        font-size: 0.76rem;
+        gap: 8px;
+        padding: 6px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Live Gold Rate Ticker Bar -->
+  <div class="gold-rate-ticker">
+    <span class="rate-pill">
+      <span class="rate-dot"></span>
+      <span id="label22k">ఈరోజు 22K (916):</span>
+      <span class="rate-val">₹14,240 / g</span>
+    </span>
+    <span style="color: rgba(212, 175, 55, 0.4);">|</span>
+    <span class="rate-pill">
+      <span id="label24k">24K ప్యూర్:</span>
+      <span class="rate-val">₹15,535 / g</span>
+    </span>
+    <span style="color: rgba(212, 175, 55, 0.4);">|</span>
+    <span id="labelWorkshopBadge" style="font-size: 0.78rem; color: var(--gold);">★ డైరెక్ట్ తయారీ లబ్ధి</span>
+  </div>
+
+  <!-- Welcome Popup -->
+  <div class="modal-overlay" id="welcomeModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closePopup()">&times;</button>
+      <h3 id="modalTitle">Bespoke Handcrafted Jewellery</h3>
+      <p id="modalDesc">Precision craftsmanship meets 100% BIS Hallmarked purity. Custom weights, showroom-grade finishing, zero middleman wastage. Mandapeta's premier custom jewellery studio.</p>
+      <a href="#" onclick="closePopup()" class="modal-btn" id="modalBtn">Explore Exclusive Designs</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="lang-switch-wrapper">
+      <select class="lang-select" id="langSelector" onchange="switchLanguage(this.value)">
+        <option value="te">🌐 తెలుగు</option>
+        <option value="en">🌐 English</option>
+      </select>
+    </div>
+    <div class="brand-title">Ram Brahmmam Jewelleries</div>
+    <div class="location-tag" id="headerLocation">Mandapeta • Custom Jewellery Studio</div>
+  </header>
+
+  <section class="hero">
+    <h2 id="heroTitle">Specialist in Handcrafted & Custom Jewellery</h2>
+    <p id="heroDesc">Select any design from our catalog or bring your custom reference model. Direct karigar crafting with maximum finishing precision.</p>
+    <div class="badges">
+      <span class="badge" style="border-color: var(--gold); color: var(--gold);">★ 25+ Years Master Craftsmanship</span>
+      <span class="badge" id="b1">916 BIS Hallmark Assured</span>
+      <span class="badge" id="b2">Direct Making Charges</span>
+      <span class="badge" id="b3">Custom Order Specialist</span>
+    </div>
+  </section>
+
+  <!-- Filter Buttons -->
+  <div class="filter-container">
+    <button class="filter-btn active" id="f-rings" onclick="filterItems('rings', event)">ఉంగరాలు</button>
+    <button class="filter-btn" id="f-chains" onclick="filterItems('chains', event)">గొలుసులు</button>
+    <button class="filter-btn" id="f-necklaces" onclick="filterItems('necklaces', event)">నెక్లెస్‌లు</button>
+    <button class="filter-btn" id="f-bangles" onclick="filterItems('bangles', event)">గాజులు</button>
+  </div>
+
+  <!-- Gallery Grid -->
+  <div class="container">
+    <div class="grid" id="jewelleryGrid"></div>
+  </div>
+
+  <!-- Heritage Trust Pillars -->
+  <section class="trust-section">
+    <div class="trust-heading" id="trustHeader">Our Assurance & Craftsmanship Guarantee</div>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <h4 id="p1-title">తరతరాల స్వర్ణ కళా వారసత్వం</h4>
+        <p id="p1-desc">నిష్ణాత స్వర్ణకారుల చేతుల్లో, సంప్రదాయ నక్షి మరియు సూక్ష్మ ఫిలిగ్రీ నైపుణ్యంతో రూపుదిద్దుకున్న మేలిమి ఆభరణాలు. యంత్రాల ముద్ర కాదు, ప్రతి నగ ఒక సజీవ కళారూపం.</p>
+      </div>
+      <div class="trust-card">
+        <h4 id="p2-title">100% BIS హాల్‌మార్క్ ప్యూర్ గోల్డ్</h4>
+        <p id="p2-desc">ప్రభుత్వ గుర్తింపు పొందిన 916 BIS Hallmark హామీ. షోరూమ్ అదనపు తరుగు, కమీషన్లు లేకుండా స్వచ్ఛమైన బంగారంతో మీ బడ్జెట్ గ్రాములకు తగినట్లుగా పారదర్శకంగా మలుస్తాము.</p>
+      </div>
+      <div class="trust-card">
+        <h4 id="p3-title">సమయానికి హామీ & సురక్షిత డెలివరీ</h4>
+        <p id="p3-desc">వివాహాది శుభకార్యాల ముహూర్తానికి చెప్పిన సమయానికి డెలివరీ. మా వర్క్‌షాప్ నుండి మీ ఇంటి గడప వరకు పూర్తి ఇన్సూరెన్స్ రక్షణ మరియు స్వచ్ఛత సర్టిఫికెట్లతో సురక్షిత చేరిక.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workshop Location Map Section -->
+  <section class="trust-section" style="margin-top: 10px; margin-bottom: 50px;">
+    <div class="trust-heading" id="mapHeading">మా వర్క్‌షాప్ లొకేషన్ (Mandapeta)</div>
+    <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: -15px; margin-bottom: 20px;">
+      కలువ పువ్వు సెంటర్, మండపేట • Ram Brahmmam Jewelleries
+    </p>
+    
+    <div style="border-radius: 14px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: 0 8px 24px rgba(0,0,0,0.6);">
+      <iframe 
+        src="https://maps.google.com/maps?q=Kaluva+Puvvu+Center,+Mandapeta,+Andhra+Pradesh&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+        width="100%" 
+        height="360" 
+        style="border:0; display: block;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
+
+  <script>
+    const WHATSAPP_NUMBER = "918897798251"; 
+
+    // Translation Data
+    const translations = {
+      te: {
+        ticker22k: "ఈరోజు 22K (916):",
+        ticker24k: "24K ప్యూర్:",
+        tickerBadge: "★ డైరెక్ట్ తయారీ లబ్ధి",
+        location: "మండపేట • కస్టమ్ జ్యువెలరీ స్టూడియో",
+        heroTitle: "ప్రత్యేకమైన చేతి నైపుణ్యం & కస్టమ్ ఆభరణాలు",
+        heroDesc: "25+ ఏళ్ల అనుభవంతో వడ్డాణాలు, చెవి దిద్దులు (Earrings), నెక్లెస్‌లు మరియు మీ నచ్చిన ఏ డిజైన్ అయినా మీ బడ్జెట్ బరువులో ప్రత్యేకంగా తయారు చేస్తాము. 100% ప్యూర్ వర్క్‌షాప్ క్రాఫ్టింగ్.",
+        b1: "916 BIS హాల్‌మార్క్ హామీ",
+        b2: "డైరెక్ట్ తయారీ ఛార్జీలు",
+        b3: "కస్టమ్ ఆర్డర్ స్పెషలిస్ట్",
+        fRings: "ఉంగరాలు",
+        fChains: "గొలుసులు",
+        fNecklaces: "నెక్లెస్‌లు",
+        fBangles: "గాజులు",
+        btnQuote: "వర్క్‌షాప్ ఎస్టిమేట్ పొందండి",
+        trustHeader: "మా నాణ్యతా ప్రమాణాలు & కస్టమర్ విశ్వసనీయత",
+        p1Title: "తరతరాల స్వర్ణ కళా వారసత్వం",
+        p1Desc: "నిష్ణాత స్వర్ణకారుల చేతుల్లో, సంప్రదాయ నక్షి మరియు సూక్ష్మ ఫిలిగ్రీ నైపుణ్యంతో రూపుదిద్దుకున్న మేలిమి ఆభరణాలు. యంత్రాల ముద్ర కాదు, ప్రతి నగ ఒక సజీవ కళారూపం.",
+        p2Title: "100% BIS హాల్‌మార్క్ ప్యూర్ గోల్డ్",
+        p2Desc: "ప్రభుత్వ గుర్తింపు పొందిన 916 BIS Hallmark హామీ. షోరూమ్ అదనపు తరుగు, కమీషన్లు లేకుండా స్వచ్ఛమైన బంగారంతో మీ బడ్జెట్ గ్రాములకు తగినట్లుగా పారదర్శకంగా మలుస్తాము.",
+        p3Title: "సమయానికి హామీ & సురక్షిత డెలివరీ",
+        p3Desc: "వివాహాది శుభకార్యాల ముహూర్తానికి చెప్పిన సమయానికి డెలివరీ. మా వర్క్‌షాప్ నుండి మీ ఇంటి గడప వరకు పూర్తి ఇన్సూరెన్స్ రక్షణ మరియు స్వచ్ఛత సర్టిఫికెట్లతో సురక్షిత చేరిక.",
+        modalTitle: "కస్టమ్ హ్యాండ్‌క్రాఫ్టెడ్ జ్యువెలరీ",
+        modalDesc: "100% BIS హాల్‌మార్క్ స్వచ్ఛతతో మీ బడ్జెట్ బరువుకు తగినట్లుగా షోరూమ్ ఫినిషింగ్‌తో నేరుగా వర్క్‌షాప్ నుండి రూపొందిస్తాము.",
+        modalBtn: "డిజైన్లు చూడండి"
+      },
+      en: {
+        ticker22k: "Today 22K (916):",
+        ticker24k: "24K Pure:",
+        tickerBadge: "★ Direct Workshop Value",
+        location: "Mandapeta • Custom Jewellery Studio",
+        heroTitle: "Specialist in Handcrafted & Custom Jewellery",
+        heroDesc: "Backed by 25+ years of master goldsmithing. From royal bridal Vaddanams and bespoke earrings to complete custom sets—crafted to your exact weight and budget.",
+        b1: "916 BIS Hallmark Assured",
+        b2: "Direct Making Charges",
+        b3: "Custom Order Specialist",
+        fRings: "Rings",
+        fChains: "Chains",
+        fNecklaces: "Necklaces",
+        fBangles: "Bangles",
+        btnQuote: "Get Workshop Estimate",
+        trustHeader: "Our Assurance & Craftsmanship Guarantee",
+        p1Title: "Living Art & Generational Mastery",
+        p1Desc: "Master artisans preserving intricate filigree and deeply sculpted temple Nakshi traditions. Custom-shaped to your exact weight—never stamped out by mass machines.",
+        p2Title: "100% BIS Hallmarked Purity",
+        p2Desc: "Absolute certified 22K/916 purity guarantee. Direct workshop crafting eliminating excessive showroom overheads, middlemen markups, and unverified wastage.",
+        p3Title: "Pristine Timelines & Insured Delivery",
+        p3Desc: "Strict adherence to wedding muhurtham dates. Insured doorstep transit directly from our Mandapeta atelier with official purity documentation.",
+        modalTitle: "Bespoke Handcrafted Jewellery",
+        modalDesc: "Precision craftsmanship meets 100% BIS Hallmarked purity. Custom weights, showroom-grade finishing, zero middleman wastage. Mandapeta's premier custom jewellery studio.",
+        modalBtn: "Explore Exclusive Designs"
+      }
+    };
+
+    let currentLang = 'te'; // Defaults to Telugu
+
+    const items = [
+      // Men's Rings
+      { code: "RB-MR-01", name: "Classic Textured Men's Ring", category: "rings", img: "images/mens ring 1.jfif" },
+      { code: "RB-MR-02", name: "Sleek Stone-Studded Men's Band", category: "rings", img: "images/mens ring 2.jfif" },
+      { code: "RB-MR-03", name: "Emerald Accent Men's Gold Ring", category: "rings", img: "images/mens ring 3.jfif" },
+      { code: "RB-MR-04", name: "Modern Minimalist Men's Band", category: "rings", img: "images/mens ring 4.jfif" },
+      { code: "RB-MR-05", name: "Royal Blue Stone Casting Ring", category: "rings", img: "images/mens ring 5.jfif" },
+
+      // Plain / Daily Wear Gold Bands
+      { code: "RB-PL-01", name: "Classic Glossy Gold Band", category: "rings", img: "images/plain 1.jfif" },
+      { code: "RB-PL-02", name: "Dual-Finish Broad Gold Band", category: "rings", img: "images/plain 2.jfif" },
+      { code: "RB-PL-03", name: "Textured Diamond-Cut Band", category: "rings", img: "images/plain 3.jfif" },
+      { code: "RB-PL-04", name: "Traditional Carved Gold Band", category: "rings", img: "images/plain 4.jfif" },
+      { code: "RB-PL-05", name: "Grooved Modern Gold Ring", category: "rings", img: "images/plain 5.jfif" },
+
+      // Wedding / Couple Rings
+      { code: "RB-WR-01", name: "Couple Matching Gold Bands", category: "rings", img: "images/wedding rings 1.jfif" },
+      { code: "RB-WR-02", name: "Elegance Duo Wedding Rings", category: "rings", img: "images/wedding rings 2.jfif" },
+      { code: "RB-WR-03", name: "Handcrafted Couple Rings Set", category: "rings", img: "images/wedding rings 4.jfif" },
+      { code: "RB-WR-04", name: "Textured Finish Wedding Pair", category: "rings", img: "images/wedding rings 5.jfif" },
+      { code: "RB-WR-05", name: "Matte Dual Tone Couple Bands", category: "rings", img: "images/wedding ring 1.jfif" },
+      
+      // Women's Rings
+      { code: "RB-LR-01", name: "Nature Inspired Leaflet Ring", category: "rings", img: "images/women ring1.jfif" },
+      { code: "RB-LR-02", name: "Solitaire Style Engagement Ring", category: "rings", img: "images/women ring 2.jfif" },
+      { code: "RB-LR-03", name: "Modern Single Stone Gold Ring", category: "rings", img: "images/women ring 3.jfif" },
+      { code: "RB-LR-04", name: "Classic Prong Solitaire Ring", category: "rings", img: "images/women ring 4.jfif" },
+      { code: "RB-LR-05", name: "Geometric Diamond-Shape Ring", category: "rings", img: "images/women ring 5.jfif" },
+      { code: "RB-LR-06", name: "Split Shank Bridal Ring", category: "rings", img: "images/women ring 6.jfif" },
+      { code: "RB-LR-07", name: "Delicate Floral Halo Ring", category: "rings", img: "images/women ring 7.jfif" },
+      { code: "RB-LR-08", name: "Round Halo Cluster Gold Ring", category: "rings", img: "images/women ring 8.jfif" },
+      { code: "RB-LR-09", name: "Princess Cut Halo Ring", category: "rings", img: "images/women ring 9.jfif" },
+      { code: "RB-LR-10", name: "Royal Statement Solitaire Ring", category: "rings", img: "images/women ring 10.jfif" },
+
+      // --- GOLD NECKLACES ---
+      { code: "RB-NCK-01", name: "Royal Heritage Choker Set", category: "necklaces", img: "images/neck-1.jfif" },
+      { code: "RB-NCK-02", name: "Classic 22K Traditional Gold Harame", category: "necklaces", img: "images/neck-2.jfif" },
+      { code: "RB-NCK-03", name: "Intricate Temple Work Necklace", category: "necklaces", img: "images/neck-3.jfif" },
+      { code: "RB-NCK-04", name: "Bridal Ruby Gold Choker", category: "necklaces", img: "images/neck-4.jfif" },
+      { code: "RB-NCK-05", name: "Antique Filigree Floral Necklace", category: "necklaces", img: "images/neck-5.jfif" },
+      { code: "RB-NCK-06", name: "Grand South Indian Bridal Necklace", category: "necklaces", img: "images/neck-6.jfif" },
+      { code: "RB-NCK-07", name: "Handcrafted Floral Choker & Earrings", category: "necklaces", img: "images/neck-7.jfif" },
+      { code: "RB-NCK-08", name: "Traditional Lakshmi Kasu Necklace", category: "necklaces", img: "images/neck-8.jfif" },
+      { code: "RB-NCK-09", name: "Broad Designer Gold Bridal Set", category: "necklaces", img: "images/neck-9.jfif" },
+      { code: "RB-NCK-10", name: "Modern Royal Collar Necklace", category: "necklaces", img: "images/neck-10.jfif" },
+      { code: "RB-NCK-11", name: "Heritage Antique Peacock Necklace", category: "necklaces", img: "images/neck-11.jfif" },
+
+      // --- GOLD CHAINS ---
+      { code: "RB-CHN-01", name: "Traditional Long Gold Haram Chain", category: "chains", img: "images/chain-1.jfif" },
+      { code: "RB-CHN-02", name: "Classic Daily Wear Sleek Chain", category: "chains", img: "images/chain-2.jfif" },
+      { code: "RB-CHN-03", name: "Traditional Hollow Rope Chain", category: "chains", img: "images/chain-3.jfif" },
+      { code: "RB-CHN-04", name: "Multi-Layered Gold Chain Set", category: "chains", img: "images/chain-4.jfif" },
+      { code: "RB-CHN-05", name: "Solid Royal Cuban Link Chain", category: "chains", img: "images/chain-5.jfif" },
+      { code: "RB-CHN-06", name: "Classic Figaro Pattern Men's Chain", category: "chains", img: "images/chain-6.jfif" },
+      { code: "RB-CHN-07", name: "Heavy Handcrafted Link Chain", category: "chains", img: "images/chain-7.jfif" },
+      { code: "RB-CHN-08", name: "Minimalist Modern Gold Chain", category: "chains", img: "images/chain-8.jfif" },
+      { code: "RB-CHN-09", name: "Textured Designer Gold Chain", category: "chains", img: "images/chain-9.jfif" },
+      { code: "RB-CHN-10", name: "Delicate Heart Pendant Chain", category: "chains", img: "images/chain-10.jfif" },
+      { code: "RB-CHN-11", name: "Bold Cuban Link Statement Chain", category: "chains", img: "images/chain-11.jfif" },
+      
+      // --- GOLD BANGLES ---
+      { code: "RB-BNG-01", name: "Traditional Kada Bangle", category: "bangles", img: "images/bangle-1.jfif" },
+      { code: "RB-BNG-02", name: "Classic Broad Daily Wear Bangles", category: "bangles", img: "images/bangle-2.jfif" },
+      { code: "RB-BNG-03", name: "Sleek Single Gold Kada", category: "bangles", img: "images/bangle-3.jfif" },
+      { code: "RB-BNG-04", name: "Royal Antique Carved Bangle", category: "bangles", img: "images/bangle-4.jfif" },
+      { code: "RB-BNG-05", name: "Heavy Bridal Gold Kada Pair", category: "bangles", img: "images/bangle-5.jfif" },
+      { code: "RB-BNG-06", name: "Royal Textured Broad Bangle", category: "bangles", img: "images/Broad Bangles That Define Royal Elegance_.jfif" },
+      { code: "RB-BNG-07", name: "Modern Twisted Gold Bangle", category: "bangles", img: "images/bangle-7.jfif" },
+      { code: "RB-BNG-08", name: "Fancy Designer Gold Bangle", category: "bangles", img: "images/bangle-8.jfif" },
+      { code: "RB-BNG-09", name: "High Polish Traditional Gold Kada", category: "bangles", img: "images/high gold.jfif" },
+      { code: "RB-BNG-10", name: "Handcrafted Kolkata Work Bangle", category: "bangles", img: "images/Kolkata Bangles – Timeless Traditional Elegance (1).jfif" },
+      { code: "RB-BNG-11", name: "Traditional Filigree Kolkata Bangle", category: "bangles", img: "images/Kolkata Bangles – Timeless Traditional Elegance (2).jfif" },
+      { code: "RB-BNG-12", name: "Vintage Kolkata Design Bangle", category: "bangles", img: "images/Kolkata Bangles – Timeless Traditional Elegance.jfif" },
+      { code: "RB-BNG-13", name: "Precision Machine Cut Gold Bangle", category: "bangles", img: "images/Machine Bangles – Modern Statement Jewellery (1).jfif" },
+      { code: "RB-BNG-14", name: "Modern Faceted Machine Bangle", category: "bangles", img: "images/Machine Bangles – Modern Statement Jewellery.jfif" }
+    ];
+
+    let currentCategory = 'rings';
+
+    function renderGallery(filter = 'rings') {
+      currentCategory = filter;
+      const grid = document.getElementById('jewelleryGrid');
+      grid.innerHTML = '';
+
+      const filtered = items.filter(item => 
+        item.category === filter || (filter === 'ring' && item.category === 'rings') || (filter === 'rings' && item.category === 'ring')
+      );
+      
+      const btnText = translations[currentLang].btnQuote;
+
+      filtered.forEach(item => {
+        const msg = currentLang === 'te'
+          ? encodeURIComponent(`నమస్కారం, నేను రామ్ బ్రాహ్మం జ్యువెలరీస్ సైట్‌లో ఈ డిజైన్ చూశాను: ${item.name} (${item.code}). దీని బరువు మరియు తయారీ వివరాలు చెప్పగలరా?`)
+          : encodeURIComponent(`Namaskaram, I saw this design on Ram Brahmmam Jewelleries website: ${item.name} (${item.code}). Can you provide weight and making details?`);
+        
+        const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" loading="lazy">
+          <div class="card-body">
+            <span class="item-code">${item.code}</span>
+            <h4 class="item-title">${item.name}</h4>
+            <a href="${waLink}" target="_blank" class="quote-btn">${btnText}</a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterItems(cat, event) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      renderGallery(cat);
+    }
+
+    function switchLanguage(lang) {
+      currentLang = lang;
+      const t = translations[lang];
+
+      document.getElementById('label22k').innerText = t.ticker22k;
+      document.getElementById('label24k').innerText = t.ticker24k;
+      document.getElementById('labelWorkshopBadge').innerText = t.tickerBadge;
+
+      document.getElementById('headerLocation').innerText = t.location;
+      document.getElementById('heroTitle').innerText = t.heroTitle;
+      document.getElementById('heroDesc').innerText = t.heroDesc;
+      document.getElementById('b1').innerText = t.b1;
+      document.getElementById('b2').innerText = t.b2;
+      document.getElementById('b3').innerText = t.b3;
+
+      document.getElementById('f-rings').innerText = t.fRings;
+      document.getElementById('f-chains').innerText = t.fChains;
+      document.getElementById('f-necklaces').innerText = t.fNecklaces;
+      document.getElementById('f-bangles').innerText = t.fBangles;
+
+      document.getElementById('trustHeader').innerText = t.trustHeader;
+      document.getElementById('p1-title').innerText = t.p1Title;
+      document.getElementById('p1-desc').innerText = t.p1Desc;
+      document.getElementById('p2-title').innerText = t.p2Title;
+      document.getElementById('p2-desc').innerText = t.p2Desc;
+      document.getElementById('p3-title').innerText = t.p3Title;
+      document.getElementById('p3-desc').innerText = t.p3Desc;
+
+      document.getElementById('modalTitle').innerText = t.modalTitle;
+      document.getElementById('modalDesc').innerText = t.modalDesc;
+      document.getElementById('modalBtn').innerText = t.modalBtn;
+
+      renderGallery(currentCategory);
+    }
+
+    function closePopup() {
+      document.getElementById('welcomeModal').style.display = 'none';
+      sessionStorage.setItem('seenPopup', 'true');
+    }
+
+    window.onload = function() {
+      switchLanguage('te');
+      if (!sessionStorage.getItem('seenPopup')) {
+        setTimeout(() => {
+          document.getElementById('welcomeModal').style.display = 'flex';
+        }, 1200);
+      }
+    };
+  </script>
+</body>
+</html>
