@@ -47,7 +47,7 @@ const translations = {
     lblEmail: "ఈమెయిల్",
     modalTitle: "కస్టమ్ గోల్డ్ స్టూడియో & రిపేర్స్",
     modalDesc: "హ్యాండ్‌క్రాఫ్టెడ్ 916 BIS హాల్‌మార్క్ ఆభరణాల తయారీ మరియు నిపుణులైన స్వర్ణకారులచే పాత బంగారు నగల ఖచ్చితమైన రిపేరింగ్ సేవలు. మండపేటలో 25+ ఏళ్ల విశ్వసనీయత.",
-    modalBtn: "డిజైన్లు చూడండి"
+    modalBtn: "సందర్శించండి"
   },
   en: {
     topLocation: "Kaluva Puvvu Center, Mandapeta",
@@ -92,7 +92,7 @@ const translations = {
     lblEmail: "Email",
     modalTitle: "Bespoke Gold Atelier & Repairs",
     modalDesc: "Precision handcrafted 916 BIS Hallmarked jewellery and expert gold repair & restoration services directly from our Mandapeta workshop.",
-    modalBtn: "Explore Exclusive Designs"
+    modalBtn: "Explore Workshop"
   }
 };
 
@@ -334,16 +334,19 @@ function closeZoom() {
   document.getElementById('zoomModal').style.display = 'none';
 }
 
+// 1. Fixed Close Popup (Never jumps or scrolls down)
 function closePopup() {
-  document.getElementById('welcomeModal').style.display = 'none';
+  const modal = document.getElementById('welcomeModal');
+  if (modal) modal.style.display = 'none';
   sessionStorage.setItem('seenPopup', 'true');
 }
 
+// 2. Fixed Button action (Simply dismisses modal and keeps user at top)
 function goToDesigns() {
   closePopup();
-  document.getElementById('designs-section').scrollIntoView({ behavior: 'smooth' });
 }
 
+// Manual scroll restoration strictly locked to the top
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
@@ -403,6 +406,7 @@ function initFirebaseSync() {
   }
 }
 
+// 3. Prevent auto-jumping on window load
 window.addEventListener('load', function() {
   if (window.location.hash) {
     window.history.replaceState(null, null, window.location.pathname);
@@ -413,9 +417,14 @@ window.addEventListener('load', function() {
   renderGallery('rings');
   initFirebaseSync();
 
+  // Show modal without disturbing the scroll position
   if (!sessionStorage.getItem('seenPopup')) {
     setTimeout(() => {
-      document.getElementById('welcomeModal').style.display = 'flex';
-    }, 1200);
+      const modal = document.getElementById('welcomeModal');
+      if (modal) {
+        modal.style.display = 'flex';
+        window.scrollTo(0, 0);
+      }
+    }, 800);
   }
 });
