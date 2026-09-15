@@ -8,882 +8,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ram Brahmmam Jewelleries | Mandapeta Gold Workshop</title>
 
-  <!-- Google Fonts: Cinzel for Luxury Headers -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&display=swap" rel="stylesheet">
   
-  <style>
-    :root {
-      --gold: #b38728;
-      --gold-light: #faecd0;
-      --gold-dark: #8c6717;
-
-      /* Royal Maroon Theme */
-      --maroon-darkest: #150205;
-      --maroon-bg: #28050b;
-      --maroon-surface: #380811;
-
-      /* Warm Antique Ivory/Cream */
-      --cream-bg: #f5ede1;
-      --cream-card: #fffdf9;
-      --cream-border: #dfd0be;
-      --cream-text-main: #1f1610;
-      --cream-text-muted: #6e5e54;
-
-      --text-main: #fbf5ed;
-      --text-muted: #dfd0c5;
-    }
-
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-    }
-    
-    body { 
-      background-color: var(--maroon-bg); 
-      color: var(--text-main); 
-      line-height: 1.6; 
-      overflow-x: hidden;
-    }
-
-    /* 1. Live Gold Rate Ticker Bar */
-    .gold-rate-ticker {
-      background: linear-gradient(90deg, #140103, #2b050c, #140103);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.4);
-      color: var(--gold-light);
-      padding: 6px 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .rates-top-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      width: 100%;
-      font-size: 0.8rem;
-    }
-
-    .rate-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      white-space: nowrap;
-    }
-
-    .rate-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 8px #22c55e;
-      animation: pulse 1.6s infinite ease-in-out;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.3; transform: scale(0.8); }
-    }
-
-    .rate-val {
-      color: #ffffff;
-      font-weight: 700;
-      background: rgba(0, 0, 0, 0.45);
-      padding: 1px 6px;
-      border-radius: 4px;
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      font-size: 0.78rem;
-    }
-
-    .workshop-badge-row {
-      font-size: 0.74rem;
-      color: var(--gold);
-      letter-spacing: 0.4px;
-      font-weight: 600;
-    }
-
-    /* 2. FLOATING ANNOUNCEMENT RIBBON */
-    .custom-ribbon {
-      background: #fbf5eb;
-      border-bottom: 1.5px solid #d8c4a5;
-      padding: 8px 0;
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-      font-size: 0.82rem;
-      box-shadow: inset 0 0 8px rgba(0,0,0,0.04);
-    }
-
-    .ribbon-track {
-      display: inline-flex;
-      gap: 50px;
-      animation: ribbonScroll 26s linear infinite;
-    }
-
-    .ribbon-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: #380811;
-      font-weight: 700;
-    }
-
-    .ribbon-badge {
-      background: linear-gradient(135deg, #380811, #1d0307);
-      color: #f7eedf;
-      font-size: 0.72rem;
-      font-weight: 800;
-      padding: 3px 9px;
-      border-radius: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      box-shadow: 0 2px 6px rgba(56, 8, 17, 0.25);
-    }
-
-    @keyframes ribbonScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* 3. TOP INFO SUB-BAR (Phone & Language Select) */
-    .top-info-bar {
-      background: #150205;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-      padding: 6px 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      color: var(--gold-light);
-      gap: 8px;
-    }
-
-    .info-location {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .top-right-group {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-
-    .info-phone {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-weight: 700;
-      color: #ffffff;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: color 0.2s ease;
-    }
-
-    .info-phone:hover {
-      color: var(--gold);
-    }
-
-    .lang-select {
-      background: #200408;
-      color: var(--gold);
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      padding: 2px 6px;
-      border-radius: 14px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      cursor: pointer;
-      outline: none;
-    }
-
-    /* 4. COMPACT LUXURY HEADER */
-    header { 
-      background: rgba(10, 1, 3, 0.98); 
-      border-bottom: 1px solid rgba(212, 175, 55, 0.35); 
-      padding: 12px 14px 8px; 
-      text-align: center; 
-      position: sticky; 
-      top: 0; 
-      z-index: 50; 
-      backdrop-filter: blur(10px);
-    }
-
-    .brand-title { 
-      font-family: 'Cinzel', serif;
-      font-size: 1.6rem;
-      color: var(--gold); 
-      font-weight: 900; 
-      letter-spacing: 1.8px; 
-      text-transform: uppercase;
-      line-height: 1.15;
-      text-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
-      width: 100%;
-      display: block;
-    }
-    
-    .location-tag { 
-      font-size: 0.76rem; 
-      color: var(--gold-light); 
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-top: 4px;
-      margin-bottom: 2px;
-    }
-
-    /* 5. NAVIGATION TABS BAR */
-    .nav-tabs-bar {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      margin-top: 8px;
-      padding-top: 6px;
-      border-top: 1px solid rgba(212, 175, 55, 0.2);
-      flex-wrap: wrap;
-    }
-
-    .nav-tab-item {
-      text-decoration: none;
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 20px;
-      border: 1px solid transparent;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-
-    .nav-tab-item:hover, .nav-tab-item.active {
-      color: #000;
-      background: var(--gold);
-      border-color: var(--gold);
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-    }
-
-    /* Hero Section (Compact) */
-    .hero { 
-      text-align: center; 
-      padding: 18px 14px 16px; 
-      background: radial-gradient(ellipse at 50% 30%, #3a0811 0%, #200408 70%, #120104 100%);
-      border-bottom: 2px solid rgba(212, 175, 55, 0.35);
-    }
-    
-    .hero h2 { 
-      font-size: 1.25rem; 
-      color: var(--gold-light); 
-      margin-bottom: 12px; 
-      font-weight: 700; 
-    }
-    
-    .badges { 
-      display: flex; 
-      justify-content: center; 
-      gap: 8px; 
-      flex-wrap: wrap; 
-    }
-    
-    .badge { 
-      background: rgba(20, 2, 5, 0.85); 
-      color: var(--gold-light);
-      padding: 4px 10px; 
-      border-radius: 30px; 
-      border: 1px solid rgba(212, 175, 55, 0.35); 
-      font-size: 0.75rem; 
-      font-weight: 600; 
-    }
-
-    /* 6. MIDDLE CREAM GALLERY WRAPPER */
-    .middle-cream-wrapper {
-      background-color: var(--cream-bg);
-      padding: 24px 0 50px;
-      border-top: 3px solid #dfd0be;
-      border-bottom: 3px solid #dfd0be;
-    }
-
-    .section-title {
-      text-align: center;
-      color: var(--maroon-surface);
-      font-size: 1.35rem;
-      font-weight: 800;
-      margin-bottom: 20px;
-      letter-spacing: 0.5px;
-      font-family: 'Cinzel', serif;
-    }
-
-    /* LUXURY SHOWROOM CAPSULE FILTER BAR */
-    .category-strip {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      padding: 10px 14px 26px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .category-strip::-webkit-scrollbar {
-      display: none;
-    }
-
-    .category-card {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #ffffff;
-      border: 1.5px solid #dfcfb8;
-      border-radius: 40px;
-      padding: 5px 16px 5px 7px;
-      cursor: pointer;
-      flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(40, 5, 10, 0.05);
-      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-
-    .category-card:hover {
-      transform: translateY(-3px);
-      border-color: var(--gold);
-      box-shadow: 0 8px 20px rgba(179, 135, 40, 0.2);
-    }
-
-    .category-card.active {
-      background: linear-gradient(135deg, #380811, #1e0307);
-      border-color: var(--gold);
-      box-shadow: 0 8px 22px rgba(56, 8, 17, 0.35);
-      transform: translateY(-2px);
-    }
-
-    .category-icon-box {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #faf5ee;
-      border: 1px solid rgba(179, 135, 40, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      box-shadow: inset 0 0 6px rgba(0,0,0,0.06);
-    }
-
-    .category-card.active .category-icon-box {
-      background: #ffffff;
-      border-color: #ffffff;
-      transform: scale(1.06);
-    }
-
-    .jewel-svg {
-      width: 22px;
-      height: 22px;
-      color: var(--gold-dark);
-      transition: all 0.3s ease;
-      filter: drop-shadow(0 1px 2px rgba(179, 135, 40, 0.25));
-    }
-
-    .category-card:hover .jewel-svg {
-      color: var(--gold);
-      transform: scale(1.12);
-    }
-
-    .category-card.active .jewel-svg {
-      color: #380811;
-      filter: drop-shadow(0 0 4px rgba(56, 8, 17, 0.3));
-      transform: scale(1.08);
-    }
-
-    .category-label {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: #380811;
-      letter-spacing: 0.5px;
-      transition: color 0.3s ease;
-      white-space: nowrap;
-    }
-
-    .category-card.active .category-label {
-      color: var(--gold-light);
-      text-shadow: 0 0 8px rgba(250, 236, 208, 0.3);
-    }
-
-    .container { 
-      max-width: 1180px; 
-      margin: 0 auto; 
-      padding: 0 16px; 
-    }
-    
-    .grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-      gap: 22px; 
-    }
-    
-    .card { 
-      background: var(--cream-card); 
-      border-radius: 14px; 
-      overflow: hidden; 
-      border: 1px solid var(--cream-border); 
-      display: flex; 
-      flex-direction: column; 
-      box-shadow: 0 6px 18px rgba(40, 20, 10, 0.06);
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease; 
-    }
-    
-    .card:hover { 
-      transform: translateY(-5px); 
-      border-color: var(--maroon-surface); 
-      box-shadow: 0 10px 24px rgba(56, 8, 17, 0.16); 
-    }
-    
-    /* LUXURY SHOWCASE FRAME */
-    .card-img-wrapper {
-      position: relative;
-      background: #ffffff;
-      padding: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid #e2d3c1;
-      box-shadow: inset 0 0 0 1px rgba(179, 135, 40, 0.35), inset 0 0 16px rgba(179, 135, 40, 0.08);
-      overflow: hidden;
-    }
-
-    .card-img-wrapper::before {
-      content: "";
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      right: 8px;
-      bottom: 8px;
-      border: 1px solid rgba(179, 135, 40, 0.22);
-      pointer-events: none;
-      border-radius: 4px;
-    }
-
-    .card img { 
-      width: 100%; 
-      height: 240px; 
-      object-fit: contain; 
-      background-color: transparent; 
-      cursor: zoom-in;
-      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
-    }
-
-    .card:hover img {
-      transform: scale(1.08);
-    }
-
-    .card-body { 
-      padding: 16px; 
-      display: flex; 
-      flex-direction: column; 
-      flex-grow: 1; 
-    }
-    
-    .item-code { 
-      font-size: 0.74rem; 
-      font-weight: 700; 
-      color: var(--gold-dark); 
-      letter-spacing: 1px; 
-    }
-    
-    .item-title { 
-      font-size: 0.96rem; 
-      margin: 6px 0 14px 0; 
-      font-weight: 600; 
-      color: var(--cream-text-main); 
-    }
-
-    .action-block {
-      margin-top: auto;
-      display: flex;
-      background: #ffffff;
-      border: 1px solid var(--maroon-surface);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .action-block a {
-      flex: 1;
-      text-decoration: none;
-      padding: 10px 6px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-    }
-
-    .action-call {
-      color: var(--maroon-surface);
-      border-right: 1px solid rgba(56, 8, 17, 0.2);
-    }
-
-    .action-call:hover {
-      background: var(--maroon-surface);
-      color: #ffffff;
-    }
-
-    .action-wa {
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      color: #ffffff;
-    }
-
-    /* 7. BOTTOM MAROON WRAPPER */
-    .bottom-maroon-wrapper {
-      background: radial-gradient(circle at 50% 15%, #3c0811 0%, #220409 70%, #140205 100%);
-      padding: 50px 0 70px;
-    }
-
-    .content-block {
-      max-width: 1180px;
-      margin: 0 auto 50px;
-      padding: 0 16px;
-    }
-
-    .block-heading {
-      text-align: center;
-      color: var(--gold-light);
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-      letter-spacing: 1px;
-      font-family: 'Cinzel', serif;
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .trust-card {
-      background: #fdfbf7;
-      border: 1px solid #e0d2c1;
-      border-top: 4px solid var(--gold);
-      border-radius: 14px;
-      padding: 26px 22px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .trust-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--gold);
-    }
-
-    .trust-card h4 {
-      color: #380811;
-      font-size: 1.15rem;
-      margin-bottom: 10px;
-      font-weight: 800;
-    }
-
-    .trust-card p {
-      color: #3b3028;
-      font-size: 0.92rem;
-      line-height: 1.7;
-      font-weight: 500;
-    }
-
-    .about-card-dedicated {
-      background: #fdfbf7;
-      border: 1px solid #e0d2c1;
-      border-left: 5px solid var(--gold);
-      border-radius: 14px;
-      padding: 34px 28px;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
-    }
-
-    .about-card-dedicated h3 {
-      color: #380811;
-      font-size: 1.35rem;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-
-    .about-tagline {
-      font-size: 0.9rem;
-      color: var(--gold-dark);
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    .about-desc {
-      color: #3b3028;
-      font-size: 0.94rem;
-      line-height: 1.8;
-      margin-bottom: 16px;
-      font-weight: 500;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .contact-details-card {
-      background: #fdfbf7;
-      border: 1px solid #e0d2c1;
-      border-radius: 14px;
-      padding: 30px 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .contact-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .contact-icon {
-      font-size: 1.25rem;
-      color: #380811;
-      line-height: 1;
-      margin-top: 3px;
-    }
-
-    .contact-info-text strong {
-      display: block;
-      color: #380811;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      font-weight: 800;
-      margin-bottom: 2px;
-    }
-
-    .contact-info-text a, .contact-info-text span {
-      color: #2b221c;
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 600;
-    }
-
-    .contact-info-text a:hover {
-      color: #8c6717;
-      text-decoration: underline;
-    }
-
-    .map-box {
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    }
-
-    /* 8. WARM LUXURY CREAM WELCOME MODAL */
-    .modal-overlay { 
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      width: 100%; 
-      height: 100%; 
-      background: rgba(0, 0, 0, 0.85); 
-      backdrop-filter: blur(6px); 
-      display: none; 
-      align-items: center; 
-      justify-content: center; 
-      z-index: 100; 
-      padding: 20px; 
-    }
-    
-    .modal-content { 
-      background: #fdfbf7; 
-      border: 2px solid var(--gold); 
-      padding: 34px 26px; 
-      border-radius: 16px; 
-      max-width: 440px; 
-      width: 100%; 
-      text-align: center; 
-      position: relative; 
-      box-shadow: 0 15px 40px rgba(0,0,0,0.6); 
-    }
-    
-    .close-btn { 
-      position: absolute; 
-      top: 12px; 
-      right: 16px; 
-      font-size: 24px; 
-      color: #8c7a6b; 
-      cursor: pointer; 
-      border: none; 
-      background: transparent; 
-      transition: color 0.2s ease;
-    }
-    
-    .close-btn:hover { color: #380811; }
-    
-    .modal-content h3 { 
-      color: #380811; 
-      margin-bottom: 10px; 
-      font-size: 1.35rem; 
-      font-weight: 800; 
-      font-family: 'Cinzel', serif;
-    }
-    
-    .modal-content p { 
-      font-size: 0.92rem; 
-      color: #3b3028; 
-      margin-bottom: 22px; 
-      line-height: 1.7;
-      font-weight: 500;
-    }
-    
-    .modal-btn { 
-      display: inline-block; 
-      background: linear-gradient(135deg, #380811, #1d0307); 
-      color: #faecd0; 
-      padding: 11px 26px; 
-      border-radius: 25px; 
-      text-decoration: none; 
-      font-weight: 700; 
-      font-size: 0.88rem; 
-      border: 1px solid var(--gold);
-      box-shadow: 0 4px 14px rgba(56, 8, 17, 0.3);
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-
-    .modal-btn:hover {
-      background: var(--gold);
-      color: #000;
-    }
-
-    /* Lightbox Zoom Modal */
-    .image-zoom-overlay {
-      position: fixed; 
-      top: 0; 
-      left: 0; 
-      width: 100%; 
-      height: 100%; 
-      background: rgba(0, 0, 0, 0.92); 
-      backdrop-filter: blur(8px); 
-      display: none; 
-      align-items: center; 
-      justify-content: center; 
-      z-index: 150; 
-      padding: 16px; 
-      cursor: zoom-out; 
-    }
-
-    .image-zoom-box {
-      max-width: 90%;
-      max-height: 85vh;
-      border-radius: 12px;
-      border: 2px solid var(--gold);
-      box-shadow: 0 10px 40px rgba(212, 175, 55, 0.35);
-      object-fit: contain;
-      background: #ffffff;
-      animation: zoomIn 0.25s ease-out;
-    }
-
-    @keyframes zoomIn {
-      from { transform: scale(0.85); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    /* Mobile Responsive Optimizations */
-    @media (max-width: 768px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .category-strip {
-        justify-content: flex-start;
-        gap: 10px;
-        padding-left: 14px;
-      }
-      .category-card {
-        padding: 4px 13px 4px 6px;
-      }
-      .category-icon-box {
-        width: 36px;
-        height: 36px;
-      }
-      .category-label {
-        font-size: 0.8rem;
-      }
-    }
-
-    @media (max-width: 600px) {
-      header {
-        padding: 10px 8px 6px;
-      }
-
-      .brand-title {
-        font-size: 1.35rem !important;
-        letter-spacing: 0.8px;
-        line-height: 1.2;
-      }
-
-      .location-tag {
-        font-size: 0.7rem;
-        display: none;
-      }
-
-      .nav-tabs-bar {
-        gap: 4px;
-        padding-top: 6px;
-        margin-top: 6px;
-      }
-
-      .nav-tab-item {
-        font-size: 0.7rem;
-        padding: 3px 8px;
-      }
-
-      .rates-top-row {
-        gap: 8px;
-        font-size: 0.76rem;
-      }
-
-      .rate-val {
-        padding: 1px 4px;
-        font-size: 0.74rem;
-      }
-
-      .top-info-bar {
-        padding: 5px 10px;
-        font-size: 0.72rem;
-      }
-
-      .lang-select {
-        font-size: 0.68rem;
-        padding: 1px 4px;
-      }
-
-      .hero {
-        padding: 14px 10px 12px;
-      }
-      
-      .hero h2 {
-        font-size: 1.15rem;
-        margin-bottom: 8px;
-      }
-    }
-  </style>
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Firebase Compat Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
 
@@ -893,12 +28,12 @@
       <span class="rate-pill">
         <span class="rate-dot"></span>
         <span id="label22k">ఈరోజు 22K (916):</span>
-        <span class="rate-val">₹14,240 / g</span>
+        <span class="rate-val" id="val22k">₹14,240 / g</span>
       </span>
       <span style="color: rgba(212, 175, 55, 0.4);">|</span>
       <span class="rate-pill">
         <span id="label24k">24K ప్యూర్:</span>
-        <span class="rate-val">₹15,535 / g</span>
+        <span class="rate-val" id="val24k">₹15,535 / g</span>
       </span>
     </div>
     <div class="workshop-badge-row">
@@ -928,16 +63,16 @@
     </div>
   </div>
 
-  <!-- 3. TOP INFO SUB-BAR -->
+  <!-- 3. Top Info Sub-Bar -->
   <div class="top-info-bar">
     <div class="info-location">
       <span>📍</span>
       <span id="topBarLocation">కలువ పువ్వు సెంటర్, మండపేట</span>
     </div>
     <div class="top-right-group">
-      <a href="tel:+918897798251" class="info-phone">
+      <a href="tel:+918897798251" class="info-phone" id="topPhoneLink">
         <span>📞</span>
-        <span>+91 88977 98251</span>
+        <span id="topPhoneText">+91 88977 98251</span>
       </a>
       <select class="lang-select" id="langSelector" onchange="switchLanguage(this.value)">
         <option value="te">తెలుగు</option>
@@ -946,7 +81,7 @@
     </div>
   </div>
 
-  <!-- Welcome Popup Modal (Button does NOT auto-scroll) -->
+  <!-- Welcome Popup Modal -->
   <div class="modal-overlay" id="welcomeModal">
     <div class="modal-content">
       <button class="close-btn" onclick="closePopup()">&times;</button>
@@ -966,7 +101,7 @@
     <div class="brand-title">RAM BRAHMMAM JEWELLERIES</div>
     <div class="location-tag" id="headerLocation">మండపేట • కస్టమ్ జ్యువెలరీ డిజైన్స్ & గోల్డ్ రిపేర్స్ వర్క్‌షాప్</div>
 
-    <!-- TABS BAR -->
+    <!-- Tabs Bar -->
     <nav class="nav-tabs-bar">
       <a href="#designs-section" class="nav-tab-item active" id="tabDesigns" onclick="setActiveTab(this)">💎 ఆభరణాలు</a>
       <a href="#experience-section" class="nav-tab-item" id="tabExp" onclick="setActiveTab(this)">👑 25+ ఏళ్ల నైపుణ్యం</a>
@@ -986,13 +121,12 @@
     </div>
   </section>
 
-  <!-- 5. DESIGNS SECTION -->
+  <!-- 5. Designs Section -->
   <div class="middle-cream-wrapper" id="designs-section">
     <div class="section-title" id="galleryHeading">ప్రత్యేక డిజైన్ కలెక్షన్</div>
 
-    <!-- LUXURY GOLD VECTOR ICON CAPSULE STRIP -->
+    <!-- Capsule Filter Bar -->
     <div class="category-strip">
-      <!-- 1. Rings -->
       <div class="category-card active" id="c-rings" onclick="selectCategory('rings')">
         <div class="category-icon-box">
           <svg viewBox="0 0 24 24" class="jewel-svg">
@@ -1004,7 +138,6 @@
         <span class="category-label" id="f-rings">ఉంగరాలు</span>
       </div>
 
-      <!-- 2. Bangles -->
       <div class="category-card" id="c-bangles" onclick="selectCategory('bangles')">
         <div class="category-icon-box">
           <svg viewBox="0 0 24 24" class="jewel-svg">
@@ -1016,7 +149,6 @@
         <span class="category-label" id="f-bangles">గాజులు</span>
       </div>
 
-      <!-- 3. Necklaces -->
       <div class="category-card" id="c-necklaces" onclick="selectCategory('necklaces')">
         <div class="category-icon-box">
           <svg viewBox="0 0 24 24" class="jewel-svg">
@@ -1028,7 +160,6 @@
         <span class="category-label" id="f-necklaces">నెక్లెస్‌లు</span>
       </div>
 
-      <!-- 4. Bracelets -->
       <div class="category-card" id="c-bracelets" onclick="selectCategory('bracelets')">
         <div class="category-icon-box">
           <svg viewBox="0 0 24 24" class="jewel-svg">
@@ -1040,7 +171,6 @@
         <span class="category-label" id="f-bracelets">బ్రాస్‌లెట్స్</span>
       </div>
 
-      <!-- 5. Earrings -->
       <div class="category-card" id="c-earrings" onclick="selectCategory('earrings')">
         <div class="category-icon-box">
           <svg viewBox="0 0 24 24" class="jewel-svg">
@@ -1052,7 +182,6 @@
         <span class="category-label" id="f-earrings">చెవి దిద్దులు</span>
       </div>
 
-      <!-- 6. Chains -->
       <div class="category-card" id="c-chains" onclick="selectCategory('chains')">
         <div class="category-icon-box">
           <svg viewBox="0 0 24 24" class="jewel-svg">
@@ -1070,10 +199,10 @@
     </div>
   </div>
 
-  <!-- 6. BOTTOM MAROON BACKDROP -->
+  <!-- 6. Bottom Maroon Backdrop -->
   <div class="bottom-maroon-wrapper">
     
-    <!-- FIELD 1: EXPERIENCE & ASSURANCE SECTION -->
+    <!-- Experience Section -->
     <section class="content-block" id="experience-section">
       <div class="block-heading" id="trustHeader">మా 25+ ఏళ్ల అనుభవం & నైపుణ్య హామీ</div>
       <div class="trust-grid">
@@ -1092,7 +221,7 @@
       </div>
     </section>
 
-    <!-- FIELD 2: ABOUT US SEPARATE FIELD -->
+    <!-- About Section -->
     <section class="content-block" id="about-section">
       <div class="block-heading" id="aboutTitleHeading">మా గురించి (About Us)</div>
       <div class="about-card-dedicated">
@@ -1108,7 +237,7 @@
       </div>
     </section>
 
-    <!-- FIELD 3: CONTACT US SEPARATE FIELD (With Map) -->
+    <!-- Contact Section -->
     <section class="content-block" id="contact-section">
       <div class="block-heading" id="contactHeading">సంప్రదించండి (Contact Us)</div>
       <div class="contact-grid">
@@ -1118,7 +247,7 @@
             <span class="contact-icon">📍</span>
             <div class="contact-info-text">
               <strong id="lblAddr">వర్క్‌షాప్ చిరునామా</strong>
-              <span>కలువ పువ్వు సెంటర్, మండపేట - 533308, కోనసీమ జిల్లా, ఆంధ్రప్రదేశ్</span>
+              <span id="mainShopAddress">కలువ పువ్వు సెంటర్, మండపేట - 533308, కోనసీమ జిల్లా, ఆంధ్రప్రదేశ్</span>
             </div>
           </div>
 
@@ -1126,7 +255,7 @@
             <span class="contact-icon">📞</span>
             <div class="contact-info-text">
               <strong id="lblPhone">ఫోన్ నెంబర్</strong>
-              <a href="tel:+918897798251">+91 88977 98251</a>
+              <a href="tel:+918897798251" id="mainContactPhone">+91 88977 98251</a>
             </div>
           </div>
 
@@ -1134,7 +263,7 @@
             <span class="contact-icon">💬</span>
             <div class="contact-info-text">
               <strong>వాట్సాప్ ఎంక్వైరీ</strong>
-              <a href="https://wa.me/918897798251" target="_blank">+91 88977 98251 (Direct Chat)</a>
+              <a href="https://wa.me/918897798251" target="_blank" id="mainContactWa">+91 88977 98251 (Direct Chat)</a>
             </div>
           </div>
 
@@ -1163,364 +292,7 @@
 
   </div>
 
-  <script>
-    const WHATSAPP_NUMBER = "918897798251"; 
-    const CALL_NUMBER = "+918897798251"; 
-
-    // Translation Data
-    const translations = {
-      te: {
-        topLocation: "కలువ పువ్వు సెంటర్, మండపేట",
-        ticker22k: "ఈరోజు 22K (916):",
-        ticker24k: "24K ప్యూర్:",
-        tickerBadge: "★ డైరెక్ట్ తయారీ లబ్ధి",
-        ribbonBadge1: "కస్టమ్ తయారీ",
-        ribbonBadge2: "రిఫరెన్స్ & రిపేర్స్",
-        ribbonMsg1: "✨ మీ మనసుకు నచ్చిన ఏ డిజైన్ అయినా మీ బడ్జెట్ & బరువుకు తగినట్లు ఆర్డర్‌పై చేసి ఇవ్వబడును ✨",
-        ribbonMsg2: "💎 నచ్చిన రిఫరెన్స్ మోడల్ తయారీతో పాటు పాత బంగారు నగలకు నైపుణ్యంతో కూడిన రిపేర్లు చేయబడును 💎",
-        tabDesigns: "💎 ఆభరణాలు",
-        tabExp: "👑 25+ ఏళ్ల నైపుణ్యం",
-        tabAbout: "🏛️ మా గురించి",
-        tabContact: "📞 సంప్రదించండి",
-        galleryHeading: "ప్రత్యేక డిజైన్ కలెక్షన్",
-        location: "మండపేట • కస్టమ్ జ్యువెలరీ డిజైన్స్ & గోల్డ్ రిపేర్స్ వర్క్‌షాప్",
-        heroTitle: "ప్రత్యేకమైన చేతి నైపుణ్యం & కస్టమ్ ఆభరణాలు",
-        b1: "916 BIS హాల్‌మార్క్ హామీ",
-        b2: "డైరెక్ట్ తయారీ ఛార్జీలు",
-        b3: "కస్టమ్ ఆర్డర్ & రిపేర్స్",
-        fRings: "ఉంగరాలు",
-        fBangles: "గాజులు",
-        fNecklaces: "నెక్లెస్‌లు",
-        fBracelets: "బ్రాస్‌లెట్స్",
-        fEarrings: "చెవి దిద్దులు",
-        fChains: "గొలుసులు",
-        trustHeader: "మా 25+ ఏళ్ల అనుభవం & నైపుణ్య హామీ",
-        p1Title: "తరతరాల స్వర్ణ కళా వారసత్వం",
-        p1Desc: "నిష్ణాత స్వర్ణకారుల చేతుల్లో, సంప్రదాయ నక్షి మరియు సూక్ష్మ ఫిలిగ్రీ నైపుణ్యంతో రూపుదిద్దుకున్న మేలిమి ఆభరణాలు.",
-        p2Title: "100% BIS హాల్‌మార్క్ ప్యూర్ గోల్డ్",
-        p2Desc: "ప్రభుత్వ గుర్తింపు పొందిన 916 BIS Hallmark హామీ. దళారులు లేకుండా స్వచ్ఛమైన బంగారంతో మీ బడ్జెట్ గ్రాములకు తగినట్లుగా మలుస్తాము.",
-        p3Title: "నైపుణ్యంతో కూడిన రిపేర్లు & డెలివరీ",
-        p3Desc: "కొత్త ఆభరణాల తయారీతో పాటు పాత బంగారు వస్తువుల రీ-పాలిషింగ్, సైజ్ అడ్జస్ట్‌మెంట్ మరియు సురక్షితమైన గోల్డ్ రిపేరింగ్ సేవలు సమయానికి చేసి ఇవ్వబడును.",
-        aboutHeading: "మా గురించి (About Us)",
-        aboutTitle: "రామ్ బ్రాహ్మం జ్యువెలరీస్ (Ram Brahmmam Jewelleries)",
-        aboutTagline: "స్వర్ణ శిల్పకళా నైపుణ్యం & కస్టమ్ రిపేర్స్ • 25+ ఏళ్ల విశ్వసనీయత",
-        aboutStory: "మండపేటలో గత 25 సంవత్సరాలుగా తరతరాల హ్యాండ్‌మేడ్ స్వర్ణకళా నైపుణ్యంతో కస్టమర్ల నమ్మకాన్ని గెలుచుకున్న డైరెక్ట్ గోల్డ్ వర్క్‌షాప్. దళారులు, అనవసరపు షోరూమ్ తరుగు ఖర్చులు లేకుండా మేలిమి 916 BIS హాల్‌మార్క్ స్వచ్ఛతతో ప్రతి నగను నేరుగా తయారుచేసి అందిస్తున్నాము. పాత బంగారు ఆభరణాల రిపేర్లు మరియు పాలిషింగ్ వర్క్స్ నూటికి నూరు శాతం ఖచ్చితత్వంతో చేయబడును.",
-        aboutSurity: "100% BIS హాల్‌మార్క్ గ్యారెంటీ & స్వర్ణకారుల ప్రత్యక్ష సేవల హామీ",
-        contactHeading: "సంప్రదించండి (Contact Us)",
-        lblAddr: "వర్క్‌షాప్ చిరునామా",
-        lblPhone: "ఫోన్ నెంబర్",
-        lblEmail: "ఈమెయిల్",
-        modalTitle: "కస్టమ్ గోల్డ్ స్టూడియో & రిపేర్స్",
-        modalDesc: "హ్యాండ్‌క్రాఫ్టెడ్ 916 BIS హాల్‌మార్క్ ఆభరణాల తయారీ మరియు నిపుణులైన స్వర్ణకారులచే పాత బంగారు నగల ఖచ్చితమైన రిపేరింగ్ సేవలు. మండపేటలో 25+ ఏళ్ల విశ్వసనీయత.",
-        modalBtn: "డిజైన్లు చూడండి"
-      },
-      en: {
-        topLocation: "Kaluva Puvvu Center, Mandapeta",
-        ticker22k: "Today 22K (916):",
-        ticker24k: "24K Pure:",
-        tickerBadge: "★ Direct Workshop Value",
-        ribbonBadge1: "CUSTOM ORDER",
-        ribbonBadge2: "SAMPLE & REPAIRS",
-        ribbonMsg1: "✨ Custom Handcrafted Jewellery made to your exact desired weight & budget on order ✨",
-        ribbonMsg2: "💎 Bespoke custom designs crafted to reference models, along with expert gold repair services 💎",
-        tabDesigns: "💎 Designs",
-        tabExp: "👑 25+ Yrs Heritage",
-        tabAbout: "🏛️ About Us",
-        tabContact: "📞 Contact Us",
-        galleryHeading: "Exclusive Handcrafted Catalog",
-        location: "Mandapeta • Custom Jewellery Designs & Gold Repairs Workshop",
-        heroTitle: "Specialist in Handcrafted Jewellery & Gold Repairs",
-        b1: "916 BIS Hallmark Assured",
-        b2: "Direct Making Charges",
-        b3: "Custom Orders & Repairs",
-        fRings: "Rings",
-        fBangles: "Bangles",
-        fNecklaces: "Necklaces",
-        fBracelets: "Bracelets",
-        fEarrings: "Earrings",
-        fChains: "Chains",
-        trustHeader: "Our 25+ Years Assurance & Craftsmanship Guarantee",
-        p1Title: "Living Art & Generational Mastery",
-        p1Desc: "Master artisans preserving intricate filigree and deeply sculpted temple Nakshi traditions.",
-        p2Title: "100% BIS Hallmarked Purity",
-        p2Desc: "Absolute certified 22K/916 purity guarantee. Direct workshop crafting eliminating excessive showroom overheads.",
-        p3Title: "Precision Repairs & Timely Delivery",
-        p3Desc: "Accurate gold repairs, stone fixing, size adjustments, and pristine repolishing delivered with complete integrity.",
-        aboutHeading: "About Our Workshop",
-        aboutTitle: "Ram Brahmmam Jewelleries",
-        aboutTagline: "Generational Goldsmithing & Repair Atelier • 25+ Years of Trust",
-        aboutStory: "A bespoke gold crafting atelier based in Mandapeta with over 25 years of master goldsmithing heritage. By eliminating commercial showroom markups and middleman costs, we craft certified 916 BIS Hallmarked ornaments directly from our workshop. We also specialize in high-precision gold repairs, restructuring, and showroom-grade polishing.",
-        aboutSurity: "100% BIS Hallmarked Purity Guarantee & Authenticity Assurance",
-        contactHeading: "Contact Us & Atelier Location",
-        lblAddr: "Workshop Atelier",
-        lblPhone: "Phone Number",
-        lblEmail: "Email",
-        modalTitle: "Bespoke Gold Atelier & Repairs",
-        modalDesc: "Precision handcrafted 916 BIS Hallmarked jewellery and expert gold repair & restoration services directly from our Mandapeta workshop.",
-        modalBtn: "Explore Exclusive Designs"
-      }
-    };
-
-    let currentLang = 'te'; 
-
-    // EXACT 96 JEWELLERY ITEMS
-    const items = [
-      // 1. RINGS (RNG)
-      { code: "RB-RNG-01", name: "Solitaire Prong Diamond Ring", category: "rings", img: "images/RNG-1.webp" },
-      { code: "RB-RNG-02", name: "Floral Petal Halo Ring", category: "rings", img: "images/RNG-2.jpeg" },
-      { code: "RB-RNG-03", name: "Emerald Accent Men's Ring", category: "rings", img: "images/RNG-3.webp" },
-      { code: "RB-RNG-04", name: "Classic Glossy Gold Band", category: "rings", img: "images/RNG-4.webp" },
-      { code: "RB-RNG-05", name: "Sleek Stone-Studded Band", category: "rings", img: "images/RNG-5.webp" },
-      { code: "RB-RNG-06", name: "Textured Diamond-Cut Ring", category: "rings", img: "images/RNG-6.webp" },
-      { code: "RB-RNG-07", name: "Classic Plain Gold Band", category: "rings", img: "images/RNG-7.webp" },
-      { code: "RB-RNG-08", name: "Dual-Finish Broad Gents Band", category: "rings", img: "images/RNG-8.webp" },
-      { code: "RB-RNG-09", name: "Royal Signet Casting Ring", category: "rings", img: "images/RNG-9.webp" },
-      { code: "RB-RNG-10", name: "Modern Minimalist Ring", category: "rings", img: "images/RNG-10.webp" },
-      { code: "RB-RNG-11", name: "Traditional Fluted Gold Band", category: "rings", img: "images/RNG-11.webp" },
-      { code: "RB-RNG-12", name: "Split Shank Princess Ring", category: "rings", img: "images/RNG-12.webp" },
-      { code: "RB-RNG-13", name: "Couple Matching Gold Bands", category: "rings", img: "images/RNG-13.webp" },
-      { code: "RB-RNG-14", name: "Nature Inspired Gold Ring", category: "rings", img: "images/RNG-14.jpg" },
-      { code: "RB-RNG-15", name: "Classic 22K Traditional Band", category: "rings", img: "images/RNG-15.webp" },
-      { code: "RB-RNG-16", name: "Grand Crown Solitaire Ring", category: "rings", img: "images/RNG-16.webp" },
-
-      // 2. BANGLES (BNG)
-      { code: "RB-BNG-01", name: "Classic High-Polish Bangles Pair", category: "bangles", img: "images/BNG-1.jfif" },
-      { code: "RB-BNG-02", name: "Broad Daily Wear Gold Kada Pair", category: "bangles", img: "images/BNG-2.jfif" },
-      { code: "RB-BNG-03", name: "Royal Antique Carved Kada", category: "bangles", img: "images/BNG-3.jfif" },
-      { code: "RB-BNG-04", name: "Sleek Single Gold Kada", category: "bangles", img: "images/BNG-4.jfif" },
-      { code: "RB-BNG-05", name: "Traditional Openable Kada Pair", category: "bangles", img: "images/BNG-5.jfif" },
-      { code: "RB-BNG-06", name: "Textured Dual-Tone Broad Kada", category: "bangles", img: "images/BNG-6.jfif" },
-      { code: "RB-BNG-07", name: "Lightweight Daily Bangles Set", category: "bangles", img: "images/BNG-7.jfif" },
-      { code: "RB-BNG-08", name: "Traditional Nakshi Carved Kada", category: "bangles", img: "images/BNG-8.jfif" },
-      { code: "RB-BNG-09", name: "Precision Machine-Cut Bangle", category: "bangles", img: "images/BNG-9.jfif" },
-      { code: "RB-BNG-10", name: "Handcrafted Filigree Bangle Pair", category: "bangles", img: "images/BNG-10.jfif" },
-      { code: "RB-BNG-11", name: "Grand Bridal Floral Kada", category: "bangles", img: "images/BNG-11.jfif" },
-      { code: "RB-BNG-12", name: "Floral Jaali Work Broad Bangle", category: "bangles", img: "images/BNG-12.jfif" },
-      { code: "RB-BNG-13", name: "Modern Twisted Gold Bangle Pair", category: "bangles", img: "images/BNG-13.jfif" },
-      { code: "RB-BNG-14", name: "Kolkata Filigree Traditional Bangle", category: "bangles", img: "images/BNG-14.jfif" },
-      { code: "RB-BNG-15", name: "Heritage Bridal Kada Pair", category: "bangles", img: "images/BNG-15.jfif" },
-      { code: "RB-BNG-16", name: "High-Polish Faceted Bangle Pair", category: "bangles", img: "images/BNG-16.jfif" },
-
-      // 3. BRACELETS (bracelet)
-      { code: "RB-BRC-01", name: "Delicate Turquoise Accent Bracelet", category: "bracelets", img: "images/bracelet-1.webp" },
-      { code: "RB-BRC-02", name: "Classic Sleek Gold Chain Bracelet", category: "bracelets", img: "images/bracelet-2.webp" },
-      { code: "RB-BRC-03", name: "Floral Charm Station Bracelet", category: "bracelets", img: "images/bracelet-3.webp" },
-      { code: "RB-BRC-04", name: "Modern Minimalist Oval Bracelet", category: "bracelets", img: "images/bracelet-4.webp" },
-      { code: "RB-BRC-05", name: "Adjustable Sliding Ball Bracelet", category: "bracelets", img: "images/bracelet-5.webp" },
-      { code: "RB-BRC-06", name: "Geometric Motif Delicate Bracelet", category: "bracelets", img: "images/bracelet-6.webp" },
-      { code: "RB-BRC-07", name: "Dual Flower Link Gold Bracelet", category: "bracelets", img: "images/bracelet-7.webp" },
-      { code: "RB-BRC-08", name: "Rhombus Filigree Station Bracelet", category: "bracelets", img: "images/bracelet-8.webp" },
-      { code: "RB-BRC-09", name: "Traditional Charm Gold Bracelet", category: "bracelets", img: "images/bracelet-9.webp" },
-      { code: "RB-BRC-10", name: "Sleek Round Daily Wear Bracelet", category: "bracelets", img: "images/bracelet-10.webp" },
-      { code: "RB-BRC-11", name: "Gold Beads (Gundla) Link Bracelet", category: "bracelets", img: "images/bracelet-11.webp" },
-      { code: "RB-BRC-12", name: "Solid Royal Cuban Men's Bracelet", category: "bracelets", img: "images/bracelet-12.webp" },
-      { code: "RB-BRC-13", name: "Textured Broad Watch-Strap Bracelet", category: "bracelets", img: "images/bracelet-13.webp" },
-      { code: "RB-BRC-14", name: "Dual Tone Designer Cuff Bracelet", category: "bracelets", img: "images/bracelet-14.webp" },
-      { code: "RB-BRC-15", name: "Modern Geometric Bar Bracelet", category: "bracelets", img: "images/bracelet-15.webp" },
-      { code: "RB-BRC-16", name: "Classic Plain Oval Gold Kada", category: "bracelets", img: "images/bracelet-16.webp" },
-
-      // 4. CHAINS (chain)
-      { code: "RB-CHN-01", name: "Classic 22K Plain Cable Chain", category: "chains", img: "images/chain-1.webp" },
-      { code: "RB-CHN-02", name: "Delicate Drop Pendant Sleek Chain", category: "chains", img: "images/chain-2.webp" },
-      { code: "RB-CHN-03", name: "Modern Y-Pattern Daily Chain", category: "chains", img: "images/chain-3.webp" },
-      { code: "RB-CHN-04", name: "Traditional Plain Oval Link Chain", category: "chains", img: "images/chain-4.webp" },
-      { code: "RB-CHN-05", name: "Auspicious Mangalsutra Chain", category: "chains", img: "images/chain-5.webp" },
-      { code: "RB-CHN-06", name: "Dual-Tone Slender Office Chain", category: "chains", img: "images/chain-6.webp" },
-      { code: "RB-CHN-07", name: "Classic Figaro Link Gold Chain", category: "chains", img: "images/chain-7.webp" },
-      { code: "RB-CHN-08", name: "Diamond-Cut Wheat Pattern Chain", category: "chains", img: "images/chain-8.webp" },
-      { code: "RB-CHN-09", name: "Solid Royal Cuban Link Chain", category: "chains", img: "images/chain-9.webp" },
-      { code: "RB-CHN-10", name: "Delicate Daily Wear Fine Chain", category: "chains", img: "images/chain-10.webp" },
-      { code: "RB-CHN-11", name: "Minimalist Pendant Link Chain", category: "chains", img: "images/chain-11.jpg" },
-      { code: "RB-CHN-12", name: "Traditional Hollow Rope Chain", category: "chains", img: "images/chain-12.webp" },
-      { code: "RB-CHN-13", name: "Modern Sleek Square Box Chain", category: "chains", img: "images/chain-13.jpg" },
-      { code: "RB-CHN-14", name: "Heavy Curb Gents Statement Chain", category: "chains", img: "images/chain-14.webp" },
-      { code: "RB-CHN-15", name: "Multi-Strand Layered Chain", category: "chains", img: "images/chain-15.webp" },
-      { code: "RB-CHN-16", name: "Traditional Long Haram Chain", category: "chains", img: "images/chain-16.webp" },
-
-      // 5. EARRINGS (ERN)
-      { code: "RB-ERN-01", name: "Floral Diamond-Style Studs", category: "earrings", img: "images/ERN-1.webp" },
-      { code: "RB-ERN-02", name: "Delicate Nature Leaf Studs", category: "earrings", img: "images/ERN-2.webp" },
-      { code: "RB-ERN-03", name: "Sleek Daily Hanging Drops", category: "earrings", img: "images/ERN-3.webp" },
-      { code: "RB-ERN-04", name: "Traditional Floral Chakra Studs", category: "earrings", img: "images/ERN-4.webp" },
-      { code: "RB-ERN-05", name: "Sui Dhaga Linear Drop Earrings", category: "earrings", img: "images/ERN-5.webp" },
-      { code: "RB-ERN-06", name: "Ruby Accent Classic Jhumkas", category: "earrings", img: "images/ERN-6.webp" },
-      { code: "RB-ERN-07", name: "Modern Geometric Huggie Hoops", category: "earrings", img: "images/ERN-7.webp" },
-      { code: "RB-ERN-08", name: "Delicate Gold Ball Daily Studs", category: "earrings", img: "images/ERN-8.webp" },
-      { code: "RB-ERN-09", name: "Traditional Filigree Drop Earrings", category: "earrings", img: "images/ERN-9.webp" },
-      { code: "RB-ERN-10", name: "Floral Star Diamond Cluster Studs", category: "earrings", img: "images/ERN-10.webp" },
-      { code: "RB-ERN-11", name: "Modern Dual Drop Danglers", category: "earrings", img: "images/ERN-11.webp" },
-      { code: "RB-ERN-12", name: "Royal Bell Shaped Jhumkas", category: "earrings", img: "images/ERN-12.webp" },
-      { code: "RB-ERN-13", name: "Grand Antique Temple Chandbalis", category: "earrings", img: "images/ERN-13.webp" },
-      { code: "RB-ERN-14", name: "Blossom Multi-Petal Studs", category: "earrings", img: "images/ERN-14.webp" },
-      { code: "RB-ERN-15", name: "Traditional Spike Flower Studs", category: "earrings", img: "images/ERN-15.webp" },
-
-      // 6. NECKLACES (NCK)
-      { code: "RB-NCK-01", name: "Royal Heritage Choker Set", category: "necklaces", img: "images/NCK-1.jfif" },
-      { code: "RB-NCK-02", name: "Classic 22K Step-Pattern Harame", category: "necklaces", img: "images/NCK-2.jfif" },
-      { code: "RB-NCK-03", name: "Intricate Temple Nakshi Necklace", category: "necklaces", img: "images/NCK-3.jfif" },
-      { code: "RB-NCK-04", name: "Grand Bridal Ruby Choker", category: "necklaces", img: "images/NCK-4.jfif" },
-      { code: "RB-NCK-05", name: "Antique Filigree Floral Necklace", category: "necklaces", img: "images/NCK-5.jfif" },
-      { code: "RB-NCK-06", name: "Contemporary Collar Mesh Necklace", category: "necklaces", img: "images/NCK-6.jfif" },
-      { code: "RB-NCK-07", name: "Traditional Lakshmi Kasu Necklace", category: "necklaces", img: "images/NCK-7.jfif" },
-      { code: "RB-NCK-08", name: "Regal Mango (Maanga) Mala", category: "necklaces", img: "images/NCK-8.jfif" },
-      { code: "RB-NCK-09", name: "Grand Antique Ruby Bridal Set", category: "necklaces", img: "images/NCK-9.jfif" },
-      { code: "RB-NCK-10", name: "Traditional Guttapusalu Choker", category: "necklaces", img: "images/NCK-10.jfif" },
-      { code: "RB-NCK-11", name: "Broad Designer Gold Bridal Harame", category: "necklaces", img: "images/NCK-11.jfif" },
-      { code: "RB-NCK-12", name: "Classic South Indian Wedding Set", category: "necklaces", img: "images/NCK-12.jfif" },
-      { code: "RB-NCK-13", name: "Delicate Floral Drop Choker", category: "necklaces", img: "images/NCK-13.jfif" },
-      { code: "RB-NCK-14", name: "Heritage Peacock Motif Necklace", category: "necklaces", img: "images/NCK-14.jfif" },
-      { code: "RB-NCK-15", name: "Handcrafted Filigree Mesh Harame", category: "necklaces", img: "images/NCK-15.jfif" },
-      { code: "RB-NCK-16", name: "Royal Nizam Bridal Collar Set", category: "necklaces", img: "images/NCK-16.jfif" }
-    ];
-
-    let currentCategory = 'rings';
-
-    function renderGallery(filter = 'rings') {
-      currentCategory = filter;
-      const grid = document.getElementById('jewelleryGrid');
-      grid.innerHTML = '';
-
-      const filtered = items.filter(item => item.category === filter);
-
-      filtered.forEach(item => {
-        const msg = currentLang === 'te'
-          ? encodeURIComponent(`నమస్కారం, నేను రామ్ బ్రాహ్మం జ్యువెలరీస్ సైట్‌లో ఈ డిజైన్ చూశాను: ${item.name} (${item.code}). దీని బరువు మరియు తయారీ వివరాలు చెప్పగలరా?`)
-          : encodeURIComponent(`Namaskaram, I saw this design on Ram Brahmmam Jewelleries website: ${item.name} (${item.code}). Can you provide weight and making details?`);
-        
-        const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
-
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <div class="card-img-wrapper">
-            <img src="${item.img}" alt="${item.name}" loading="lazy" onclick="openZoom('${item.img}')">
-          </div>
-          <div class="card-body">
-            <span class="item-code">${item.code}</span>
-            <h4 class="item-title">${item.name}</h4>
-            <div class="action-block">
-              <a href="tel:${CALL_NUMBER}" class="action-call">📞 Call</a>
-              <a href="${waLink}" target="_blank" class="action-wa">💬 WhatsApp</a>
-            </div>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    function selectCategory(cat) {
-      document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
-      const activeCard = document.getElementById(`c-${cat}`);
-      if (activeCard) activeCard.classList.add('active');
-      renderGallery(cat);
-    }
-
-    function setActiveTab(el) {
-      document.querySelectorAll('.nav-tab-item').forEach(tab => tab.classList.remove('active'));
-      el.classList.add('active');
-    }
-
-    function switchLanguage(lang) {
-      currentLang = lang;
-      const t = translations[lang];
-
-      document.getElementById('topBarLocation').innerText = t.topLocation;
-      document.getElementById('label22k').innerText = t.ticker22k;
-      document.getElementById('label24k').innerText = t.ticker24k;
-      document.getElementById('labelWorkshopBadge').innerText = t.tickerBadge;
-
-      document.getElementById('badgeOrder1').innerText = t.ribbonBadge1;
-      document.getElementById('badgeOrder2').innerText = t.ribbonBadge2;
-      document.getElementById('badgeOrder3').innerText = t.ribbonBadge1;
-      document.getElementById('badgeOrder4').innerText = t.ribbonBadge2;
-      document.getElementById('ribbonText1').innerText = t.ribbonMsg1;
-      document.getElementById('ribbonText2').innerText = t.ribbonMsg2;
-      document.getElementById('ribbonText3').innerText = t.ribbonMsg1;
-      document.getElementById('ribbonText4').innerText = t.ribbonMsg2;
-
-      document.getElementById('tabDesigns').innerText = t.tabDesigns;
-      document.getElementById('tabExp').innerText = t.tabExp;
-      document.getElementById('tabAbout').innerText = t.tabAbout;
-      document.getElementById('tabContact').innerText = t.tabContact;
-      document.getElementById('galleryHeading').innerText = t.galleryHeading;
-
-      document.getElementById('headerLocation').innerText = t.location;
-      document.getElementById('heroTitle').innerText = t.heroTitle;
-      document.getElementById('b1').innerText = t.b1;
-      document.getElementById('b2').innerText = t.b2;
-      document.getElementById('b3').innerText = t.b3;
-
-      document.getElementById('f-rings').innerText = t.fRings;
-      document.getElementById('f-bangles').innerText = t.fBangles;
-      document.getElementById('f-necklaces').innerText = t.fNecklaces;
-      document.getElementById('f-bracelets').innerText = t.fBracelets;
-      document.getElementById('f-earrings').innerText = t.fEarrings;
-      document.getElementById('f-chains').innerText = t.fChains;
-
-      document.getElementById('trustHeader').innerText = t.trustHeader;
-      document.getElementById('p1-title').innerText = t.p1Title;
-      document.getElementById('p1-desc').innerText = t.p1Desc;
-      document.getElementById('p2-title').innerText = t.p2Title;
-      document.getElementById('p2-desc').innerText = t.p2Desc;
-      document.getElementById('p3-title').innerText = t.p3Title;
-      document.getElementById('p3-desc').innerText = t.p3Desc;
-
-      document.getElementById('aboutTitleHeading').innerText = t.aboutHeading;
-      document.getElementById('aboutOwnerName').innerText = t.aboutTitle;
-      document.getElementById('aboutExpTagline').innerText = t.aboutTagline;
-      document.getElementById('aboutStoryText').innerText = t.aboutStory;
-      document.getElementById('aboutSurityText').innerText = t.aboutSurity;
-
-      document.getElementById('contactHeading').innerText = t.contactHeading;
-      document.getElementById('lblAddr').innerText = t.lblAddr;
-      document.getElementById('lblPhone').innerText = t.lblPhone;
-      document.getElementById('lblEmail').innerText = t.lblEmail;
-
-      document.getElementById('modalTitle').innerText = t.modalTitle;
-      document.getElementById('modalDesc').innerText = t.modalDesc;
-      document.getElementById('modalBtn').innerText = t.modalBtn;
-
-      renderGallery(currentCategory);
-    }
-
-    function openZoom(imgSrc) {
-      const modal = document.getElementById('zoomModal');
-      const img = document.getElementById('zoomedImage');
-      img.src = imgSrc;
-      modal.style.display = 'flex';
-    }
-
-    function closeZoom() {
-      document.getElementById('zoomModal').style.display = 'none';
-    }
-
-    function closePopup() {
-      document.getElementById('welcomeModal').style.display = 'none';
-      sessionStorage.setItem('seenPopup', 'true');
-    }
-
-    function goToDesigns() {
-      closePopup();
-    }
-
-    // Always reset scroll to the very top (Header / Shop Name)
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-
-    window.addEventListener('load', function() {
-      if (window.location.hash) {
-        window.history.replaceState(null, null, window.location.pathname);
-      }
-      window.scrollTo(0, 0);
-
-      switchLanguage('te');
-      if (!sessionStorage.getItem('seenPopup')) {
-        setTimeout(() => {
-          document.getElementById('welcomeModal').style.display = 'flex';
-        }, 1200);
-      }
-    });
-  </script>
+  <!-- External App Script -->
+  <script src="js/app.js"></script>
 </body>
 </html>

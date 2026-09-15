@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RBJ Management Console | Ram Brahmmam Jewelleries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- External Admin CSS -->
+  <link rel="stylesheet" href="css/admin.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+  <!-- Secret Login Screen -->
+  <div class="login-overlay" id="loginScreen">
+    <div class="login-card">
+      <div class="brand-icon" style="margin: 0 auto 12px auto; width: 50px; height: 50px; font-size: 1.3rem;">RB</div>
+      <h2 style="font-family: 'Cinzel', serif; font-size: 1.15rem; color: var(--maroon-bar); margin-bottom: 4px;">Owner Sign In</h2>
+      <p style="font-size: 0.8rem; color: #776558; margin-bottom: 20px;">Ram Brahmmam Jewelleries</p>
+
+      <div class="form-group" style="text-align: left; margin-bottom: 14px;">
+        <label class="form-label">Admin Passcode:</label>
+        <input type="password" id="adminPass" class="form-control" placeholder="Default: rbj@2026">
+      </div>
+
+      <button onclick="login()" class="btn-publish" style="width: 100%; justify-content: center;">Unlock Console</button>
+      <p id="errTxt" style="color: #b91c1c; font-size: 0.78rem; font-weight: 600; margin-top: 10px; display: none;">Invalid Passcode!</p>
+    </div>
+  </div>
+
+  <!-- Top Management Bar -->
+  <header class="top-nav">
+    <div class="brand-group">
+      <div class="brand-icon">RB</div>
+      <div class="brand-text">
+        <h1>RAM BRAHMMAM JEWELLERIES <span class="live-dot"></span></h1>
+        <p>Mandapeta Web Management Console</p>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="tabs-group">
+      <button class="tab-btn active" id="tabGalleryBtn" onclick="showTab('gallery')">🖼️ Gallery</button>
+      <button class="tab-btn" id="tabSettingsBtn" onclick="showTab('settings')">⚙️ Site Settings</button>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="actions-group">
+      <a href="index.html" class="btn-view-site" target="_blank">↗ View Site</a>
+      <button class="btn-logout" onclick="logout()">↪ Logout</button>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="main-container">
+
+    <!-- 1. GALLERY TAB -->
+    <section id="galleryTab">
+      <div class="panel-card">
+        <div class="tag-badge">⊕ Upload Media</div>
+        <h2 class="panel-title">Add Jewellery to "Exclusive Designs" Catalog</h2>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">Jewellery Title / Item Name *</label>
+            <input type="text" id="itemName" class="form-control" placeholder="e.g. Royal Antique Nakshi Ring">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Category *</label>
+            <select id="itemCat" class="form-control">
+              <option value="rings">Rings (ఉంగరాలు)</option>
+              <option value="bangles">Bangles (గాజులు)</option>
+              <option value="necklaces">Necklaces (నెక్లెస్‌లు)</option>
+              <option value="bracelets">Bracelets (బ్రాస్‌లెట్స్)</option>
+              <option value="earrings">Earrings (చెవి దిద్దులు)</option>
+              <option value="chains">Chains (గొలుసులు)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid-even">
+          <div class="form-group">
+            <label class="form-label">Approx Weight (Grams) *</label>
+            <input type="text" id="itemGrams" class="form-control" placeholder="e.g. 6.5g - 8g or 12g">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Design Code (Optional)</label>
+            <input type="text" id="itemCode" class="form-control" placeholder="e.g. RB-NEW-101">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Upload Photo (Phone Camera / Gallery or Image URL) *</label>
+          <div class="file-input-bar">
+            <input type="file" id="itemFile" accept="image/*">
+            <span class="or-divider">OR</span>
+            <input type="url" id="itemUrl" class="url-input" placeholder="https://images.unsplash.com/... direct link">
+          </div>
+        </div>
+
+        <div class="btn-submit-bar">
+          <button class="btn-publish" id="publishBtn" onclick="publishItem()">
+            <span>📤</span> Publish to Live Gallery
+          </button>
+        </div>
+        <p id="publishStatus" style="font-size: 0.85rem; font-weight: 700; color: #15803d; margin-top: 8px;"></p>
+      </div>
+
+      <!-- Live Published List -->
+      <div class="panel-card">
+        <div class="list-header">
+          <div>
+            <h3 style="font-size: 1.05rem; font-weight: 800;">Live Published Jewellery</h3>
+            <p id="countTxt" style="font-size: 0.78rem; color: #776558;">0 custom photos uploaded</p>
+          </div>
+          <button class="btn-refresh" onclick="loadLiveList()">🔄 Refresh</button>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="items-table">
+            <thead>
+              <tr>
+                <th>Photo</th>
+                <th>Code</th>
+                <th>Item Name</th>
+                <th>Category</th>
+                <th>Weight</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="liveListBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SITE SETTINGS TAB -->
+    <section id="settingsTab" style="display: none;">
+      <div class="panel-card">
+        <div class="tag-badge">⚙️ Workshop Details</div>
+        <h2 class="panel-title">Update Live Gold Rates & Shop Contact</h2>
+
+        <div class="form-grid-even">
+          <div class="form-group">
+            <label class="form-label">Today 22K (916) Rate (per gram) *</label>
+            <input type="text" id="set22k" class="form-control" placeholder="₹14,240 / g">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Today 24K Pure Rate (per gram) *</label>
+            <input type="text" id="set24k" class="form-control" placeholder="₹15,535 / g">
+          </div>
+        </div>
+
+        <div class="form-grid-even">
+          <div class="form-group">
+            <label class="form-label">Calling & WhatsApp Number *</label>
+            <input type="text" id="setPhone" class="form-control" placeholder="+91 88977 98251">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Shop Address *</label>
+            <input type="text" id="setAddress" class="form-control" placeholder="కలువ పువ్వు సెంటర్, మండపేట">
+          </div>
+        </div>
+
+        <div class="btn-submit-bar">
+          <button class="btn-publish" onclick="saveSiteSettings()">
+            <span>💾</span> Save All Settings
+          </button>
+        </div>
+        <p id="settingsStatus" style="font-size: 0.85rem; font-weight: 700; color: #15803d; margin-top: 8px;"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- External Admin Script -->
+  <script src="js/admin.js"></script>
+</body>
+</html>
